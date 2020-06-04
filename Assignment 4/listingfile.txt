@@ -1,0 +1,87 @@
+; This is the assembly listing file generated through visual studio for my assignment 4. 
+; Assembly listing file has information about the assembly process and contains number of sections for example page header, command line,
+; source listing and symbols.
+Microsoft (R) Macro Assembler Version 14.21.27702.2	    02/24/20 18:45:12
+..\Assignment4.asm					     Page 1 - 1
+
+
+				; AddTwoSum.asm - Chapter 3 example.
+
+				.386
+				.model flat,stdcall
+				.stack 4096
+				ExitProcess proto,dwExitCode:dword
+
+				;For unsigned 32 bit variables
+ 00000000			.data
+ 00000000 000003E8		valueA DWORD 1000
+ 00000004 000001F4		valueB DWORD 500
+ 00000008 000001C2		valueC DWORD 450
+ 0000000C 00000064		valueD DWORD 100
+ 00000010 00000000		sum DWORD 0
+
+
+ 00000000			.code
+ 00000000			main proc
+ 00000000  A1 00000000 R	    mov eax, valueA
+ 00000005  8B 1D 00000004 R		mov ebx, valueB
+ 0000000B  8B 0D 00000008 R		mov ecx, valueC
+ 00000011  8B 15 0000000C R		mov edx, valueD
+
+ 00000017  03 C3			add	eax, ebx
+ 00000019  03 CA			add ecx, edx
+					
+ 0000001B  2B C1			sub eax, ecx
+									
+ 0000001D  A3 00000010 R		mov sum, eax
+
+					invoke ExitProcess,0
+ 00000022  6A 00	   *	    push   +000000000h
+ 00000024  E8 00000000 E   *	    call   ExitProcess
+ 00000029			main endp
+				end main
+Microsoft (R) Macro Assembler Version 14.21.27702.2	    02/24/20 18:45:12
+..\Assignment4.asm					     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000014 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000029 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000029 Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+sum  . . . . . . . . . . . . . .	DWord	 00000010 _DATA	
+valueA . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+valueB . . . . . . . . . . . . .	DWord	 00000004 _DATA	
+valueC . . . . . . . . . . . . .	DWord	 00000008 _DATA	
+valueD . . . . . . . . . . . . .	DWord	 0000000C _DATA	
+
+	   0 Warnings
+	   0 Errors
